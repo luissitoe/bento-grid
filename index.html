@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Bento grid</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -17,7 +18,7 @@
 <body>
 
 <main>
-    <section class="grid" aria-label="bento grid">
+    <section class="grid container" aria-label="bento grid">
 
       <div class="card card--social">
         <h1 class="card__title">Social Media <span>10x</span> <em>Faster</em> with AI</h1>
@@ -32,28 +33,29 @@
 
       <div class="card card--posting">
         <h2 class="card__title">Maintain a consistent posting schedule.</h2>
-        <img class="card__image" src="./assets/images/illustration-schedule-posts.webp" alt="Schedule Posts">
+        <img class="card__image" src="./assets/images/illustration-consistent-schedule.webp" alt="Schedule Posts">
       </div>
 
       <div class="card card--schedule">
         <h2 class="card__title">Schedule to social media.</h2>
         <img class="card__image" src="./assets/images/illustration-schedule-posts.webp" alt="Schedule Posts">
-        <p class="card__description">Over 4,000 5-star reviews</p>
+        <p class="card__description">Optimize post timings to publish content at the perfect time for your audience.</p>
       </div>
 
       <div class="card card--followers">
-        <h2 class="card__title">Grow followers with non-stop content.</h2>
         <img class="card__image" src="./assets/images/illustration-grow-followers.webp" alt="Grow Followers">
+        <h2 class="card__title">Grow followers with non-stop content.</h2>
       </div>
 
       <div class="card card--growth">
-        <h2 class="card__title"><span>56%</span><br> faster audience growth</h2>
+        <p class="card__number">>56%</p>
+        <h2 class="card__title">faster audience growth</h2>
         <img class="card__image" src="./assets/images/illustration-audience-growth.webp" alt="Audience Growth">
       </div>
 
-      <div class="card card--content">
-        <h2 class="card__title">Create and schedule content <span>quicker.</span></h2>
-        <img class="card__image" src="./assets/images/illustration-schedule-posts.webp" alt="Audience Growth">
+      <div class="card card--create">
+        <h2 class="card__title">Create and schedule content <em>quicker.</em></h2>
+        <img class="card__image" src="./assets/images/illustration-create-post.webp" alt="Audience Growth">
       </div>
 
       <div class="card card--write">
