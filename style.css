@@ -1,4 +1,4 @@
-:root{
+:root {
     /* primary */
     --color-primary-100: hsl(254, 88%, 90%);
     --color-primary-500: hsl(256, 67%, 59%);
@@ -8,10 +8,10 @@
 
     --color-white: hsl(0, 0%, 100%);
     --color-gray: hsl(0, 0%, 96%, 100%);
-    --color-black:  hsl(0, 0%, 7%);
+    --color-black: hsl(0, 0%, 7%);
 
     /* typography */
-    --font-family: "DM Sans", sans-serif;
+    --font-family: "DM Sans", serif;
     --fs-base: 1.8rem;
     --fs-xl: 2.6rem;
     --fs-2xl: 4.4rem;
@@ -21,7 +21,9 @@
 
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -36,8 +38,12 @@ img {
     max-width: 100%;
 }
 
-h1, h2, h3 {
-    font-weight: var(--fw-500);
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.1rem;
 }
 
 h1 {
@@ -50,41 +56,42 @@ h2 {
 
 body {
     background-color: var(--color-gray);
-    font-family: var(--font-family);
+    font-family: "DM Sans", serif;
     font-size: var(--fs-base);
     font-weight: var(--fw-400);
-    line-height: 1;
 }
 
 .container {
     width: 100%;
-    max-width: 1024px;
+    max-width: 111.5rem;
     margin: auto;
     padding: 3.2rem 1.6rem;
 }
 
-.grid {
+.grid,
+.grid__column,
+.grid__item,
+.grid__item-inside{
     display: grid;
     gap: 3rem;
 }
 
-.card {
-    display: grid;
+.grid__item {
     width: 100%;
     overflow: hidden;
     gap: 1rem;
     background-color: var(--color-white);
-    padding: 2.4rem;
+    padding: 2.2rem;
     border-radius: .7rem;
 }
 
 /* Social Media */
-.card--social {
+.social {
     background-color: var(--color-primary-500);
     padding: 4rem;
 }
 
-.card--social h1 {
+.social .card__title {
     color: var(--color-white);
     font-size: var(--fs-2xl);
     font-weight: var(--fw-500);
@@ -92,42 +99,42 @@ body {
     margin-bottom: 3rem;
 }
 
-.card--social h1 span {
+.social .card__title span {
     color: var(--color-secondary-500);
 }
 
-.card--social img {
+.social .card__image {
     max-width: 18rem;
     margin: auto;
 }
 
-.card--social p {
+.social p {
     color: var(--color-gray);
     text-align: center;
 }
 
 /* Platforms */
-.card--platforms img {
+.platforms .card__image {
     margin-bottom: 2rem;
 }
 
 /* Posting schedule */
-.card--posting {
+.posting {
     background-color: var(--color-secondary-500);
     padding-block-end: 0;
 }
 
-.card--posting h2 {
+.posting .card__title {
     margin-bottom: 1rem;
 }
 
-.card--posting img {
+.posting .card__image {
     max-width: 24rem;
     margin-bottom: -2rem;
 }
 
 /* Schedule to social media */
-.card--schedule {
+.schedule {
     background-color: var(--color-primary-100);
     text-align: center;
     gap: 3rem;
@@ -136,62 +143,129 @@ body {
 }
 
 /* Grow followers */
-.card--followers {
+.followers {
     background-color: var(--color-primary-500);
 }
 
-.card--followers h2 {
+.followers .card__title {
     color: var(--color-white);
     text-align: center;
     font-size: 3.2rem;
 }
 
-.card--followers img {
+.followers .card__image {
     max-width: 25rem;
     margin: auto auto 2rem;
 }
 
 /* Audience growth */
-.card--growth .card__number {
+.audience .card__number {
     font-size: var(--fs-2xl);
     font-weight: var(--fw-500);
 }
 
-.card--growth .card__title {
+.audience .card__title {
     font-size: var(--fs-base);
     padding: 2.5rem 0;
 }
 
-.card--growth .card__image {
+.audience .card__image {
     max-width: 18rem;
 }
 
 /* Create post */
-.card--create {
+.create {
     background-color: var(--color-secondary-100);
 }
 
-.card--create .card__title em {
+.create .card__title em {
     color: var(--color-primary-500);
 }
 
-.card--create .card__title {
+.create .card__title {
     padding-bottom: 2rem;
 }
 
-.card--create .card__image {
+.create .card__image {
     max-width: 18rem;
 }
 
 /* Write */
-.card--write {
+.write {
     background-color: var(--color-secondary-500);
 }
 
-.card--write .card__title{
+.write .card__title {
     padding-bottom: 2rem;
 }
 
-.card--write .card__image {
+.write .card__image {
     max-width: 20rem;
+}
+
+@media screen and (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: repeat(3, 30rem);
+        grid-template-areas:
+    "column4 column1 column2"
+    "column4 column1 column2"
+    "column4 column3 column3";
+    }
+
+    .grid--column-1 {
+        grid-area: column1;
+    }
+
+    .grid--column-1 .grid__item-inside{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid--column-2 {
+        grid-area: column2;
+    }
+
+    .grid--column-3 {
+        grid-area: column3;
+        grid-template-columns: 1fr 2.2fr;
+    }
+
+    .grid--column-4 {
+        grid-area: column4;
+    }
+
+
+    .audience {
+        order: -1;
+    }
+
+    .followers {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .followers .card__image {
+
+    }
+
+    .followers .card__title {
+        text-align: left;
+        align-self: center;
+    }
+
+    .create .card__title,
+    .write .card__title,
+    .followers .card__title{
+        font-size: 4rem;
+    }
+
+    .social .card__title {
+        font-size: 6rem;
+    }
+
+    .platforms .card__title,
+    .posting .card__title,
+    .schedule .card__title{
+        font-size: 3.2rem;
+    }
 }
